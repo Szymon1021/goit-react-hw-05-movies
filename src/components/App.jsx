@@ -11,8 +11,8 @@ export const App = () => {
       <Nav />
       <hr />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Movies" element={<Movies />} />
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/Movies" element={<Movies />}></Route>
         <Route path="/Movies/:movieId" element={<MoviesDetails />} />
       </Routes>
     </div>

@@ -1,28 +1,32 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { api } from 'Api/api';
+import MoviesFinder from './MoviesFinder';
+import MoviesComponents from './MoviesComponent';
 
 function Movies() {
   const [query, setQuery] = useState([]);
 
-  useEffect(() => {
-    api.fetchSearchMovies().then(query => {
-      setQuery(query);
-    });
-  }, [query]);
+  const handleInput = evt => {
+    evt.preventDefault();
+    setQuery(evt.target.value);
+  };
+  const handleGetRequest = async e => {
+    e.preventDefault();
+
+    const response = await api.fetchSearchMovies(query);
+    setQuery(response);
+    console.log(response);
+  };
 
   return (
-    <form>
-      <button type="submit">
-        <span>Search movies </span>
-      </button>
+    <div>
+      <MoviesFinder
+        handleGetRequest={handleGetRequest}
+        handleInput={handleInput}
+      ></MoviesFinder>
 
-      <input
-        type="text"
-        autoComplete="off"
-        autoFocus
-        placeholder="Search movies"
-      />
-    </form>
+      <MoviesComponents movies={query}></MoviesComponents>
+    </div>
   );
 }
 
