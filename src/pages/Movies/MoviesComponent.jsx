@@ -1,9 +1,16 @@
 import MovieList from './MovieList';
 
-function MoviesComponents(query) {
+function MoviesComponents(querys) {
   <ul>
-    {query.map(q => {
-      return <MovieList movie={q.movie}></MovieList>;
+    {querys.map(q => {
+      return (
+        <MovieList
+          key={q.id}
+          title={q.tittle}
+          poster_path={q.poster_path}
+          name={q.name}
+        ></MovieList>
+      );
     })}
   </ul>;
 }

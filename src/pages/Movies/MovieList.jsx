@@ -1,49 +1,29 @@
 import { Link } from 'react-router-dom';
 
-function MovieList({ movie }) {
+function MovieList({ title, poster_path, name }) {
   const src = `https://www.themoviedb.org/t/p/w220_and_h330_face`;
   return (
-    <div
+    <li
       style={{
-        width: '80%',
-        height: '80%',
+        listStyle: 'none',
+        width: '220px',
+        height: '400px',
+        margin: '10px',
+        padding: '10px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        textAlign: 'center',
+        border: '1px solid #ccc',
+        fontSize: '20px',
       }}
     >
-      <ul
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gridTemplateRows: 'repeat(5, 1fr)',
-          gridColumnGap: '20px',
-          gridRowGap: '20px',
-        }}
-      >
-        {movie.map(m => (
-          <li
-            style={{
-              listStyle: 'none',
-              width: '220px',
-              height: '400px',
-              margin: '10px',
-              padding: '10px',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-around',
-              alignItems: 'center',
-              textAlign: 'center',
-              border: '1px solid #ccc',
-              fontSize: '20px',
-            }}
-            key={m.id}
-          >
-            <Link to="/Movies/moviesId">
-              <img src={src + m.poster_path} alt={m.title} />
-              <p>{m.title ? m.title : m.name}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <Link to="/Movies/moviesId">
+        <img src={src + poster_path} alt={title} />
+        <p>{title ? title : name}</p>
+      </Link>
+    </li>
   );
 }
 

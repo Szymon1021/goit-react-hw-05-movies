@@ -5,17 +5,18 @@ import MoviesComponents from './MoviesComponent';
 
 function Movies() {
   const [query, setQuery] = useState([]);
+  const [search, setSearch] = useState('');
 
   const handleInput = evt => {
     evt.preventDefault();
-    setQuery(evt.target.value);
+    setSearch(evt.target.value);
   };
   const handleGetRequest = async e => {
     e.preventDefault();
 
-    const response = await api.fetchSearchMovies(query);
-    setQuery(response);
-    console.log(response);
+    const response = await api.fetchSearchMovies(search);
+    setQuery(response.results);
+    console.log(response.results);
   };
 
   return (
@@ -24,8 +25,7 @@ function Movies() {
         handleGetRequest={handleGetRequest}
         handleInput={handleInput}
       ></MoviesFinder>
-
-      <MoviesComponents movies={query}></MoviesComponents>
+      <MoviesComponents querys={query}></MoviesComponents>
     </div>
   );
 }
