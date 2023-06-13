@@ -11,6 +11,7 @@ function Movies() {
     evt.preventDefault();
     setSearch(evt.target.value);
   };
+
   const handleGetRequest = async e => {
     e.preventDefault();
 

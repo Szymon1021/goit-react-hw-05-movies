@@ -1,6 +1,6 @@
 import MovieList from './MovieList';
 
-function MoviesComponents(querys) {
+function MoviesComponents({ querys }) {
   <ul>
     {querys.map(q => {
       return (
