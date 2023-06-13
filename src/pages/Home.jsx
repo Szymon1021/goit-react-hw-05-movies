@@ -2,6 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import { api } from 'Api/api';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -49,8 +50,10 @@ const Home = () => {
             }}
             key={movie.id}
           >
-            <img src={src + movie.poster_path} alt={movie.title} />
-            <p>{movie.title ? movie.title : movie.name}</p>
+            <Link to="/Movies/moviesId">
+              <img src={src + movie.poster_path} alt={movie.title} />
+              <p>{movie.title ? movie.title : movie.name}</p>
+            </Link>
           </li>
         ))}
       </ul>
