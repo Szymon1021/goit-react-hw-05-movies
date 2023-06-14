@@ -4,6 +4,7 @@ import Nav from './Nav';
 import './App.css';
 
 import Movies from 'pages/Movies/Movies';
+import MoviesDetails from 'pages/Movies/MoviesDetails';
 
 export const App = () => {
   return (
@@ -12,6 +13,7 @@ export const App = () => {
       <hr />
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/Movies/:id" element={<MoviesDetails />} />
         <Route path="/Movies" element={<Movies />}></Route>
       </Routes>
     </div>

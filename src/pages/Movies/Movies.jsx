@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { api } from 'Api/api';
 import MoviesFinder from './MoviesFinder';
-import MoviesComponents from './MoviesComponent';
+import MoviesList from './MoviesList';
 
 function Movies() {
   const [query, setQuery] = useState([]);
@@ -26,7 +26,7 @@ function Movies() {
         handleGetRequest={handleGetRequest}
         handleInput={handleInput}
       ></MoviesFinder>
-      <MoviesComponents querys={query}></MoviesComponents>
+      <MoviesList querys={query}></MoviesList>
     </div>
   );
 }

@@ -50,7 +50,7 @@ const Home = () => {
             }}
             key={movie.id}
           >
-            <Link to="/Movies/moviesId">
+            <Link to={`/Movies/${movie.id}`}>
               <img src={src + movie.poster_path} alt={movie.title} />
               <p>{movie.title ? movie.title : movie.name}</p>
             </Link>
