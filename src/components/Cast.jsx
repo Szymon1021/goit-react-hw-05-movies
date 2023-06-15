@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { api } from 'Api/api';
 
-export const Cast = () => {
+function Cast() {
   const { id } = useParams();
   const movieId = Number(id);
   const [cast, setCast] = useState();
@@ -12,11 +12,11 @@ export const Cast = () => {
       try {
         const movieDetails = await api.fetchGetMoviesCredits(movieId);
         setCast(movieDetails);
+        console.log(movieDetails);
       } catch (error) {}
     };
 
     getMovieCastbyId2(movieId);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movieId]);
 
   const setProfile = profile_path => {
@@ -33,7 +33,7 @@ export const Cast = () => {
       {console.log(cast)}
 
       <ul>
-        {cast.data.cast.map(
+        {cast?.cast.map(
           ({ name, character, profile_path, id, original_name }) => {
             return (
               <li key={id}>
@@ -47,4 +47,5 @@ export const Cast = () => {
       </ul>
     </div>
   );
-};
+}
+export default Cast;

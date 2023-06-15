@@ -4,9 +4,9 @@ import Nav from './Nav';
 import './App.css';
 
 import Movies from 'pages/Movies/Movies';
-import MoviesDetails from 'pages/Movies/MoviesDetails/MoviesDetails';
-import Cast from 'pages/Movies/MoviesDetails/Cast';
-import Reviews from 'pages/Movies/MoviesDetails/Reviews';
+import MoviesDetails from 'pages/Movies/MoviesDetails';
+import Cast from 'components/Cast';
+import Reviews from 'components/Reviews';
 
 export const App = () => {
   return (

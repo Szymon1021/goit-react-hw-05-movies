@@ -26,6 +26,7 @@ function MoviesDetails() {
 
   return (
     <div>
+      {console.log(movie)}
       <div>
         <GoBackLink to={backLink}>
           <button> Go Back </button>
@@ -40,6 +41,9 @@ function MoviesDetails() {
         <h3>Overview</h3>
         <p>{movie.overview}</p>
         <h3>Genres</h3>
+        {movie.map(({ name }) => {
+          return <p>{name}</p>;
+        })}
       </div>
       <Link to="cast">
         <button>Cast</button>
@@ -47,7 +51,9 @@ function MoviesDetails() {
       <Link to="reviews">
         <button>Reviews</button>
       </Link>
-      <Outlet />
+      <section>
+        <Outlet />
+      </section>
     </div>
   );
 }
