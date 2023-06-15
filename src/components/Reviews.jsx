@@ -22,6 +22,7 @@ function Reviews() {
     <div>
       {
         <ul>
+          {console.log(reviews)}
           {reviews !== 0 ? (
             reviews.map(({ author, content, id }) => {
               return (

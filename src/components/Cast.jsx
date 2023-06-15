@@ -30,6 +30,7 @@ function Cast() {
   return (
     <div>
       <h1>CAST</h1>
+
       {console.log(cast)}
 
       <ul>

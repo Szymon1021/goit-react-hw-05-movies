@@ -45,6 +45,7 @@ function MoviesDetails() {
           return <p>{name}</p>;
         })}
       </div>
+      {console.log(movie)}
       <Link to="cast">
         <button>Cast</button>
       </Link>
