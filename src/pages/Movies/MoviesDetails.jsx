@@ -17,7 +17,6 @@ function MoviesDetails() {
       try {
         const movieDetails = await api.fetchGetMoviesDetails(movieId);
         setMovie(movieDetails);
-        console.log(movieDetails);
       } catch (error) {}
     };
 
@@ -26,7 +25,6 @@ function MoviesDetails() {
 
   return (
     <div>
-      {console.log(movie)}
       <div>
         <GoBackLink to={backLink}>
           <button> Go Back </button>
@@ -41,8 +39,10 @@ function MoviesDetails() {
         <h3>Overview</h3>
         <p>{movie.overview}</p>
         <h3>Genres</h3>
+        {movie.genres &&
+          movie.genres.map(({ id, name }) => <p key={id}>{name}</p>)}
       </div>
-      {console.log(movie)}
+
       <Link to="cast">
         <button>Cast</button>
       </Link>

@@ -12,7 +12,6 @@ function Cast() {
       try {
         const movieDetails = await api.fetchGetMoviesCredits(movieId);
         setCast(movieDetails);
-        console.log(movieDetails);
       } catch (error) {}
     };
 
@@ -29,22 +28,25 @@ function Cast() {
 
   return (
     <div>
-      <h1>CAST</h1>
-
-      {console.log(cast)}
+      <h3>CAST:</h3>
 
       <ul>
-        {cast?.cast.map(
-          ({ name, character, profile_path, id, original_name }) => {
-            return (
-              <li key={id}>
-                <img src={setProfile(profile_path)} alt="actor" width="100" />
-                <p>{name || original_name}</p>
-                <p>Character: {character}</p>
-              </li>
-            );
-          }
+        {cast && cast.cast.length !== 0 ? (
+          cast.cast.map(
+            ({ name, character, profile_path, id, original_name }) => {
+              return (
+                <li key={id}>
+                  <img src={setProfile(profile_path)} alt="actor" width="100" />
+                  <p>{name || original_name}</p>
+                  <p>Character: {character}</p>
+                </li>
+              );
+            }
+          )
+        ) : (
+          <p>We do not have any cast for this movie.</p>
         )}
+        ;
       </ul>
     </div>
   );

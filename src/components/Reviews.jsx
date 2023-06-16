@@ -23,9 +23,9 @@ function Reviews() {
     <div>
       {
         <ul>
-          {console.log(reviews)}
-          {reviews !== 0 ? (
-            reviews.map(({ author, content, id }) => {
+          {console.log(reviews.results)}
+          {reviews.results && reviews.results.length !== 0 ? (
+            reviews.results.map(({ author, content, id }) => {
               return (
                 <li key={id}>
                   <h3>Athor: {author}</h3>
