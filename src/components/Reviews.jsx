@@ -12,7 +12,6 @@ function Reviews() {
       try {
         const movieReviews = await api.fetchGetMoviesReviews(movieId);
         setReviews(movieReviews);
-        console.log(movieReviews);
       } catch (error) {}
     };
 
@@ -23,7 +22,6 @@ function Reviews() {
     <div>
       {
         <ul>
-          {console.log(reviews.results)}
           {reviews.results && reviews.results.length !== 0 ? (
             reviews.results.map(({ author, content, id }) => {
               return (

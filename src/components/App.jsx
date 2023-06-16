@@ -2,17 +2,20 @@ import Home from '../pages/Home';
 import { Route, Routes } from 'react-router-dom';
 import Nav from './Nav';
 import './App.css';
-
-import Movies from 'pages/Movies/Movies';
-import MoviesDetails from 'pages/Movies/MoviesDetails';
-import Cast from 'components/Cast';
-import Reviews from 'components/Reviews';
+import { lazy, Suspense } from 'react';
 
 export const App = () => {
+  const MoviesDetails = lazy(() => import('pages/Movies/MoviesDetails'));
+
+  const Movies = lazy(() => import('pages/Movies/Movies'));
+  const Cast = lazy(() => import('components/Cast'));
+  const Reviews = lazy(() => import('components/Reviews'));
+
   return (
     <div>
       <Nav />
       <hr />
+      <Suspense fallback={<div>loading...</div>}></Suspense>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/Movies/:id" element={<MoviesDetails />}>
