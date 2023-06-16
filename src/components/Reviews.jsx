@@ -5,13 +5,14 @@ import { api } from 'Api/api';
 function Reviews() {
   const { id } = useParams();
   const movieId = Number(id);
-  const [reviews, setReviews] = useState();
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     const getMovieReviewsById = async movieId => {
       try {
         const movieReviews = await api.fetchGetMoviesReviews(movieId);
         setReviews(movieReviews);
+        console.log(movieReviews);
       } catch (error) {}
     };
 

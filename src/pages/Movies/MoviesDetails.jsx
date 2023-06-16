@@ -41,9 +41,6 @@ function MoviesDetails() {
         <h3>Overview</h3>
         <p>{movie.overview}</p>
         <h3>Genres</h3>
-        {movie.map(({ name }) => {
-          return <p>{name}</p>;
-        })}
       </div>
       {console.log(movie)}
       <Link to="cast">
