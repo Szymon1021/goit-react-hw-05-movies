@@ -6,7 +6,6 @@ import { lazy, Suspense } from 'react';
 
 export const App = () => {
   const MoviesDetails = lazy(() => import('pages/Movies/MoviesDetails'));
-
   const Movies = lazy(() => import('pages/Movies/Movies'));
   const Cast = lazy(() => import('components/Cast'));
   const Reviews = lazy(() => import('components/Reviews'));
