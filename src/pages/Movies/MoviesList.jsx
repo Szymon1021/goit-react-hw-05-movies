@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function MoviesList({ querys }) {
   const src = `https://www.themoviedb.org/t/p/w220_and_h330_face`;
@@ -41,5 +42,8 @@ function MoviesList({ querys }) {
     </ul>
   );
 }
+MoviesList.propTypes = {
+  querys: PropTypes.array.isRequired,
+};
 
 export default MoviesList;
