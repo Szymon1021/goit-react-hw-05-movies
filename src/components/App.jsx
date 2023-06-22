@@ -12,9 +12,8 @@ export const App = () => {
 
   return (
     <div>
-      <nav>
-        <Nav />
-      </nav>
+      <Nav />
+
       <hr />
       <Suspense fallback={<div>loading...</div>}>
         <Routes>
